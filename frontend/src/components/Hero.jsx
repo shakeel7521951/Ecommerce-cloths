@@ -112,7 +112,7 @@ const Hero = () => {
           <div className="relative rounded-xl overflow-hidden shadow-2xl">
             <img
               className="w-full h-auto object-cover"
-              src={assets.hero_img}
+              src="https://thumbs.dreamstime.com/b/young-blonde-girl-beautiful-blue-eyes-wearing-black-jacket-close-up-portrait-outdoors-pretty-russian-female-long-wavy-87720680.jpg"
               alt="Fashion model wearing our latest collection"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>

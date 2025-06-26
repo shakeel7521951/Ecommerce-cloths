@@ -1,20 +1,32 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react' 
 import { ShopContext } from '../context/ShopContext'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-const ProductItem = ({id,image,name,price}) => {
-    
-    const {currency} = useContext(ShopContext);
+const ProductItem = ({ id, image, name, price }) => {
+  const { currency } = useContext(ShopContext);
 
   return (
-    <Link onClick={()=>scrollTo(0,0)} className='text-gray-700 cursor-pointer' to={`/product/${id}`}>
-      <div className=' overflow-hidden'>
-        <img className='hover:scale-110 transition ease-in-out' src={image[0]} alt="" />
+    <Link 
+      to={`/product/${id}`} 
+      onClick={() => scrollTo(0, 0)} 
+      className="group block bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-3"
+    >
+      {/* Image */}
+      <div className="overflow-hidden rounded-lg">
+        <img 
+          src={image[0]} 
+          alt={name} 
+          className="w-full h-48 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500 ease-in-out" 
+        />
       </div>
-      <p className='pt-3 pb-1 text-sm'>{name}</p>
-      <p className=' text-sm font-medium'>{currency}{price}</p>
+
+      {/* Product Info */}
+      <div className="mt-4 space-y-1 text-center">
+        <h3 className="text-gray-800 font-semibold text-sm group-hover:text-pink-600 transition">{name}</h3>
+        <p className="text-gray-600 text-sm font-medium">{currency}{price}</p>
+      </div>
     </Link>
-  )
+  );
 }
 
-export default ProductItem
+export default ProductItem;

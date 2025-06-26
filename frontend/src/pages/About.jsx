@@ -56,7 +56,7 @@ const HeroSection = () => {
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, ease: 'easeOut' }}
             >
-              <h1 className="text-4xl sm:text-6xl font-bold leading-tight text-gray-900 dark:text-white">
+              <h1 className="text-4xl sm:text-6xl font-bold leading-tight text-black ">
                 Hey 👋 I am
                 <br />
                 <motion.span
@@ -69,11 +69,11 @@ const HeroSection = () => {
                 </motion.span>
               </h1>
 
-              <p className="mt-6 text-lg text-gray-700 dark:text-gray-300 max-w-xl">
+              <p className="mt-6 text-lg text-gray-600  max-w-xl">
                 Passionate about building delightful user experiences and powerful web applications. Let’s create something amazing together — with creativity, precision, and a deep focus on innovation, performance, scalability, and seamless design for real-world impact.
               </p>
 
-              <p className="mt-6 text-xl text-gray-600 dark:text-gray-400">
+              <p className="mt-6 text-xl text-gray-700 ">
                 <span className="relative inline-block">
                   <span className="absolute inset-x-0 bottom-0 h-1 bg-rose-500 rounded-md animate-pulse" />
                   <span className="relative">Have a question?</span>
@@ -111,7 +111,8 @@ const HeroSection = () => {
       <section className="py-12 bg-gray-50 sm:py-8 ">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center">
-            <p className="text-lg font-medium text-rose-600 font-pj">
+            <p className="text-lg font-medium text-rose-600 
+          ">
               500 people have said how good Rareblocks
             </p>
             <h2 className="mt-4 text-3xl font-bold text-gray-900 sm:text-4xl xl:text-5xl font-pj">
