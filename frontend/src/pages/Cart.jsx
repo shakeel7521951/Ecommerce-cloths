@@ -19,13 +19,13 @@ const Cart = () => {
               _id: items,
               size: item,
               quantity: cartItems[items][item]
-            })
+            });
           }
         }
       }
       setCartData(tempData);
     }
-  }, [cartItems, products])
+  }, [cartItems, products]);
 
   const container = {
     hidden: { opacity: 0 },
@@ -35,7 +35,7 @@ const Cart = () => {
         staggerChildren: 0.1
       }
     }
-  }
+  };
 
   const item = {
     hidden: { y: 20, opacity: 0 },
@@ -55,10 +55,10 @@ const Cart = () => {
         duration: 0.3
       }
     }
-  }
+  };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -66,7 +66,7 @@ const Cart = () => {
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <motion.div 
+        <motion.div
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ type: "spring", stiffness: 300 }}
@@ -99,6 +99,12 @@ const Cart = () => {
           <AnimatePresence>
             {cartData.map((cartItem) => {
               const productData = products.find(p => p._id === cartItem._id);
+
+              if (!productData) {
+                console.warn("Product not found for cart item:", cartItem._id);
+                return null;
+              }
+
               return (
                 <motion.div
                   key={`${cartItem._id}-${cartItem.size}`}
@@ -111,13 +117,13 @@ const Cart = () => {
                   <div className="flex items-center gap-6 w-full sm:w-auto">
                     <motion.div whileHover={{ rotate: -1 }} className="relative">
                       <div className="absolute -inset-2 bg-pink-200 rounded-xl blur-xl opacity-40" />
-                      <img 
-                        src={productData.image[0]} 
+                      <img
+                        src={productData.image[0]}
                         alt={productData.name}
                         className="w-24 h-24 object-cover rounded-xl relative z-10 border-2 border-white shadow-md"
                       />
                     </motion.div>
-                    
+
                     <div>
                       <h3 className="text-xl font-semibold text-pink-800">{productData.name}</h3>
                       <div className="flex items-center gap-4 mt-2">
@@ -191,7 +197,7 @@ const Cart = () => {
         )}
       </div>
     </motion.div>
-  )
-}
+  );
+};
 
 export default Cart;
